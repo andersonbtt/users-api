@@ -1,0 +1,3 @@
+users-api.code-workspace
+node_modules/
+src/db/db.config

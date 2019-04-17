@@ -1,0 +1,13 @@
+{
+  "name": "users-api",
+  "version": "1.0.0",
+  "description": "Users api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy":"zip * -r lambda.zip -x *.zip *.log"
+  },
+  "author": "andersonbtt",
+  "license": "ISC"
+}
