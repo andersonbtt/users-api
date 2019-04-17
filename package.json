@@ -4,10 +4,13 @@
   "description": "Users api",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy":"zip * -r lambda.zip -x *.zip *.log"
+    "predeploy": "zip -r lambda.zip * -x *.zip *.log"
   },
   "author": "andersonbtt",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "serverless-mysql": "^1.2.1"
+  }
 }

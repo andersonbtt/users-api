@@ -1,10 +1,18 @@
-const mysql = require('mysql');
 const {db} = require('./db/db.config');
+const mysql = require('serverless-mysql')({config: db});
 
 var conn;
 
-/*exports.handler = (event, context, callback) => {
-}*/
+exports.handler = async (event, context) => {
+  // Run your query
+  let results = await mysql.query();
+
+  // Run clean up function
+  await mysql.end();
+
+  // Return the results
+  return results;
+}
 
 
 function createTable(){
@@ -39,14 +47,10 @@ function deleteUser(id){
     executeQuery(sql, (err, results)=>{console.log(results)});    
 }
 
-function executeQuery(sql, callback){
-    if(typeof conn === 'undefined'){
-        conn = mysql.createConnection(db);
-    }
-    conn.query(sql, (err, results)=>{
-        callback(err, results);
-    });
-    conn.end();
+async function executeQuery(sql, callback){
+    let results = await mysql.query(sql);
+    await mysql.end();
+    callback(null, results);
 };
 
 //test();
@@ -55,3 +59,4 @@ function executeQuery(sql, callback){
 //listUsers();
 //queryUser(3);
 //deleteUser(3);
+
