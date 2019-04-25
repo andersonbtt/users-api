@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "zip -r lambda.zip * -x *.zip *.log"
+    "linuxpack": "zip -r lambda.zip * -x *.zip *.log",
+    "winpack": "7z a -tzip lambda.zip *"
   },
   "author": "andersonbtt",
   "license": "ISC",
