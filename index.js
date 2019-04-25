@@ -6,7 +6,7 @@ const { getUsers,
         getUserById, 
         deleteUserById, 
         putExistentUser, 
-        putNewUser} = require('./repository/userRepository');
+        putNewUser} = require('./repositories/userRepository');
 
 exports.handler = async (event, context, callback) => {
     let httpMethod = event.httpMethod;
